@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-icon (click)="toggle()">menu</mat-icon>
+  <span>Weather Statistics</span>
+</mat-toolbar>
+<mat-sidenav-container>
+
+  <mat-sidenav>
+      <app-search (toggle)="toggle()"></app-search>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-table></app-table>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

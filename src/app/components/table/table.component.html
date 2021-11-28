@@ -1,0 +1,32 @@
+<mat-table matSort [dataSource]="dataSource" color="primary">
+
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Time </mat-header-cell>
+    <mat-cell *matCellDef="let measurement"> {{measurement.time | timestamp | date: 'dd/MM/YYYY HH:mm:ss'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="temperature">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </mat-header-cell>
+    <mat-cell *matCellDef="let measurement"> {{measurement.temperature}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="humidity">
+    <mat-header-cell  *matHeaderCellDef mat-sort-header> Humidity </mat-header-cell>
+    <mat-cell *matCellDef="let measurement"> {{measurement.humidity}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+
+</mat-table>
+
+<mat-progress-bar *ngIf="!loaded" color="primary" mode="indeterminate"></mat-progress-bar>
+
+<mat-card class="no-data" *ngIf="loaded && !dataSource.data?.length">
+  [ No Data ]
+</mat-card>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons
+               aria-label="Select page of periodic elements">
+</mat-paginator>
+

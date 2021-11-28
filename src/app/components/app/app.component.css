@@ -1,0 +1,12 @@
+mat-sidenav {
+  padding: 12px 25px;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
