@@ -2,8 +2,6 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {Measurement} from "../../types";
 import {map} from "rxjs/operators";
 import firebase from "firebase/compat";
-import QuerySnapshot = firebase.firestore.QuerySnapshot;
-import QueryDocumentSnapshot = firebase.firestore.QueryDocumentSnapshot;
 
 import {Subscription} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
@@ -11,6 +9,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {CommunicationService} from "../../services";
+import QuerySnapshot = firebase.firestore.QuerySnapshot;
+import QueryDocumentSnapshot = firebase.firestore.QueryDocumentSnapshot;
 
 @Component({
   selector: 'app-table',
@@ -28,7 +28,7 @@ export class TableComponent implements AfterViewInit {
   constructor(
     private firebase: AngularFirestore,
     private communicationService: CommunicationService
-    ) {
+  ) {
     this.dataSource = new MatTableDataSource<Measurement>();
     this.communicationService.send(this.dataSource);
 
